@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Licitaciones Mercado Público</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <h1>Licitaciones Mercado Público</h1>
+  <p>Consulta diaria de licitaciones publicadas, con filtro por palabras clave.</p>
+</header>
+
+<main>
+  <section class="panel">
+    <div class="form-row">
+      <div class="field">
+        <label for="ticket">Ticket API (Mercado Público)</label>
+        <input type="password" id="ticket" placeholder="Tu ticket/API key">
+        <small>Se guarda solo en este navegador (localStorage).</small>
+      </div>
+      <div class="field">
+        <label for="fecha">Fecha</label>
+        <input type="date" id="fecha">
+        <small style="color: #fff;">--</small>
+      </div>
+      <div class="field">
+        <label for="keywords">Palabras clave</label>
+        <input type="text" id="keywords" placeholder="ej: informática, aseo, computadores">
+        <small>Separadas por coma. Vacío = mostrar todas.</small>
+      </div>
+      <div class="field">
+        <button id="buscarBtn">Buscar</button>
+      </div>
+    </div>
+
+    <div class="field" style="margin-top:14px;">
+      <label>Estado</label>
+      <div class="toggle-group" id="estadoToggles">
+        <label class="toggle-chip active"><input type="checkbox" value="Publicada" checked>Publicada</label>
+        <label class="toggle-chip active"><input type="checkbox" value="Cerrada" checked>Cerrada</label>
+        <label class="toggle-chip active"><input type="checkbox" value="Adjudicada" checked>Adjudicada</label>
+        <label class="toggle-chip active"><input type="checkbox" value="Desierta" checked>Desierta</label>
+        <label class="toggle-chip active"><input type="checkbox" value="Revocada" checked>Revocada</label>
+        <label class="toggle-chip active"><input type="checkbox" value="Suspendida" checked>Suspendida</label>
+      </div>
+    </div>
+
+    <div id="status" class="status"></div>
+  </section>
+
+  <section class="panel" style="padding:0;">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Estado</th>
+            <th>Fecha Cierre</th>
+          </tr>
+        </thead>
+        <tbody id="resultsBody">
+          <tr><td colspan="4" class="empty">Sin resultados aún. Ingresa tu ticket, elige fecha y presiona Buscar.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Datos provistos por la API pública de Mercado Público (mercadopublico.cl). Requiere ticket propio.
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
